@@ -10,7 +10,12 @@
         <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% include('@sil13Vitrine/Common/menu.html.twig') %}
+        <div class="panel panel-default">
+            <div class="panel-body">
+                {% block body %}{% endblock %}
+            </div>
+        </div>
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         {% block javascripts %}{% endblock %}
