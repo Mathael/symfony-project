@@ -1,6 +1,6 @@
 <?php
 
-namespace sil13\VitrineBundle\Controller;
+namespace sil13\AdminBundle\Controller;
 
 use sil13\VitrineBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -34,7 +34,7 @@ class UserController extends Controller
     public function newAction(Request $request)
     {
         $user = new User();
-        $form = $this->createForm('sil13\VitrineBundle\Form\UserType', $user);
+        $form = $this->createForm('sil13\AdminBundle\Form\UserType', $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -72,7 +72,7 @@ class UserController extends Controller
     public function editAction(Request $request, User $user)
     {
         $deleteForm = $this->createDeleteForm($user);
-        $editForm = $this->createForm('sil13\VitrineBundle\Form\UserType', $user);
+        $editForm = $this->createForm('sil13\AdminBundle\Form\UserType', $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
