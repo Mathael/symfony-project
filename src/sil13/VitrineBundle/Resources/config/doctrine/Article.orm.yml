@@ -1,0 +1,21 @@
+sil13\VitrineBundle\Entity\Article:
+    type: entity
+    table: null
+    repositoryClass: sil13\VitrineBundle\Repository\ArticleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '30'
+        description:
+            type: string
+            length: 255
+            nullable: true
+        isSoldOut:
+            type: boolean
+    lifecycleCallbacks: {  }
