@@ -1,0 +1,7 @@
+sil13_admin_homepage:
+    path:     /
+    defaults: { _controller: sil13AdminBundle:Default:index }
+
+sil13_admin_user:
+    resource: "@sil13AdminBundle/Resources/config/routing/user.yml"
+    prefix:   /user
