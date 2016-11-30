@@ -29,6 +29,11 @@ class Article
      */
     private $isSoldOut;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $category;
+
 
     /**
      * Get id
@@ -107,5 +112,46 @@ class Article
     public function getIsSoldOut()
     {
         return $this->isSoldOut;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add category
+     *
+     * @param \sil13\VitrineBundle\Entity\Category $category
+     * @return Article
+     */
+    public function addCategory(\sil13\VitrineBundle\Entity\Category $category)
+    {
+        $this->category[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \sil13\VitrineBundle\Entity\Category $category
+     */
+    public function removeCategory(\sil13\VitrineBundle\Entity\Category $category)
+    {
+        $this->category->removeElement($category);
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

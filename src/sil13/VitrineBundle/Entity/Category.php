@@ -19,6 +19,10 @@ class Category
      */
     private $name;
 
+    /**
+     * @var \sil13\VitrineBundle\Entity\Article
+     */
+    private $articles;
 
     /**
      * Get id
@@ -51,5 +55,28 @@ class Category
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set articles
+     *
+     * @param \sil13\VitrineBundle\Entity\Article $articles
+     * @return Category
+     */
+    public function setArticles(\sil13\VitrineBundle\Entity\Article $articles = null)
+    {
+        $this->articles = $articles;
+
+        return $this;
+    }
+
+    /**
+     * Get articles
+     *
+     * @return \sil13\VitrineBundle\Entity\Article 
+     */
+    public function getArticles()
+    {
+        return $this->articles;
     }
 }

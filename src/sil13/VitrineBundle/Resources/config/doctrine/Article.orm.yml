@@ -18,4 +18,8 @@ sil13\VitrineBundle\Entity\Article:
             nullable: true
         isSoldOut:
             type: boolean
+    oneToMany:
+        category:
+            mappedBy: articles
+            targetEntity: sil13\VitrineBundle\Entity\Category
     lifecycleCallbacks: {  }

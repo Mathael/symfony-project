@@ -12,4 +12,8 @@ sil13\VitrineBundle\Entity\Category:
         name:
             type: string
             length: '30'
+    manyToOne:
+        articles:
+          inversedBy: category
+          targetEntity: sil13\VitrineBundle\Entity\Article
     lifecycleCallbacks: {  }
