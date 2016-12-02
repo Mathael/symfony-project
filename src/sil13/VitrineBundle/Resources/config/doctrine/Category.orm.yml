@@ -12,8 +12,8 @@ sil13\VitrineBundle\Entity\Category:
         name:
             type: string
             length: '30'
-    manyToOne:
+    oneToMany:
         articles:
-          inversedBy: category
+          mappedBy: category
           targetEntity: sil13\VitrineBundle\Entity\Article
     lifecycleCallbacks: {  }

@@ -6,3 +6,7 @@ sil13\VitrineBundle\Entity\User:
             type: integer
             generator:
                 strategy: AUTO
+    oneToMany:
+        articles:
+            mappedBy: user
+            targetEntity: sil13\VitrineBundle\Entity\Article

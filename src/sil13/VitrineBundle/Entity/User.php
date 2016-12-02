@@ -22,7 +22,46 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $articles;
+
     public function __construct() {
         parent::__construct();
+    }
+
+
+    /**
+     * Add articles
+     *
+     * @param \sil13\VitrineBundle\Entity\Article $articles
+     * @return User
+     */
+    public function addArticle(\sil13\VitrineBundle\Entity\Article $articles)
+    {
+        $this->articles[] = $articles;
+
+        return $this;
+    }
+
+    /**
+     * Remove articles
+     *
+     * @param \sil13\VitrineBundle\Entity\Article $articles
+     */
+    public function removeArticle(\sil13\VitrineBundle\Entity\Article $articles)
+    {
+        $this->articles->removeElement($articles);
+    }
+
+    /**
+     * Get articles
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArticles()
+    {
+        return $this->articles;
     }
 }

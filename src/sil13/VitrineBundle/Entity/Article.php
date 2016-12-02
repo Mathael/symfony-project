@@ -34,6 +34,10 @@ class Article
      */
     private $category;
 
+    /**
+     * @var \sil13\VitrineBundle\Entity\User
+     */
+    private $user;
 
     /**
      * Get id
@@ -153,5 +157,41 @@ class Article
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \sil13\VitrineBundle\Entity\Category $category
+     * @return Article
+     */
+    public function setCategory(\sil13\VitrineBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \sil13\VitrineBundle\Entity\User $user
+     * @return Article
+     */
+    public function setUser(\sil13\VitrineBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \sil13\VitrineBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
