@@ -22,6 +22,7 @@ sil13\VitrineBundle\Entity\Article:
         category:
             inversedBy: articles
             targetEntity: sil13\VitrineBundle\Entity\Category
+    manyToMany:
         user:
             inversedBy: articles
             targetEntity: sil13\VitrineBundle\Entity\User

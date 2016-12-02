@@ -79,4 +79,35 @@ class Category
     {
         return $this->articles;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->articles = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add article
+     *
+     * @param \sil13\VitrineBundle\Entity\Article $article
+     *
+     * @return Category
+     */
+    public function addArticle(\sil13\VitrineBundle\Entity\Article $article)
+    {
+        $this->articles[] = $article;
+
+        return $this;
+    }
+
+    /**
+     * Remove article
+     *
+     * @param \sil13\VitrineBundle\Entity\Article $article
+     */
+    public function removeArticle(\sil13\VitrineBundle\Entity\Article $article)
+    {
+        $this->articles->removeElement($article);
+    }
 }

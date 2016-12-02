@@ -194,4 +194,28 @@ class Article
     {
         return $this->user;
     }
+
+    /**
+     * Add user
+     *
+     * @param \sil13\VitrineBundle\Entity\User $user
+     *
+     * @return Article
+     */
+    public function addUser(\sil13\VitrineBundle\Entity\User $user)
+    {
+        $this->user[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \sil13\VitrineBundle\Entity\User $user
+     */
+    public function removeUser(\sil13\VitrineBundle\Entity\User $user)
+    {
+        $this->user->removeElement($user);
+    }
 }

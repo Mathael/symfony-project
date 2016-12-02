@@ -8,13 +8,11 @@ use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Article controller.
- *
  */
 class ArticleController extends Controller
 {
     /**
      * Lists all article entities.
-     *
      */
     public function indexAction()
     {
@@ -22,14 +20,13 @@ class ArticleController extends Controller
 
         $articles = $em->getRepository('sil13VitrineBundle:Article')->findAll();
 
-        return $this->render('article/index.html.twig', array(
+        return $this->render('sil13VitrineBundle:article:index.html.twig', array(
             'articles' => $articles,
         ));
     }
 
     /**
      * Creates a new article entity.
-     *
      */
     public function newAction(Request $request)
     {
@@ -45,7 +42,7 @@ class ArticleController extends Controller
             return $this->redirectToRoute('article_show', array('id' => $article->getId()));
         }
 
-        return $this->render('article/new.html.twig', array(
+        return $this->render('sil13VitrineBundle:article:new.html.twig', array(
             'article' => $article,
             'form' => $form->createView(),
         ));
@@ -59,7 +56,7 @@ class ArticleController extends Controller
     {
         $deleteForm = $this->createDeleteForm($article);
 
-        return $this->render('article/show.html.twig', array(
+        return $this->render('sil13VitrineBundle:article:show.html.twig', array(
             'article' => $article,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -81,7 +78,7 @@ class ArticleController extends Controller
             return $this->redirectToRoute('article_edit', array('id' => $article->getId()));
         }
 
-        return $this->render('article/edit.html.twig', array(
+        return $this->render('sil13VitrineBundle:article:edit.html.twig', array(
             'article' => $article,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
