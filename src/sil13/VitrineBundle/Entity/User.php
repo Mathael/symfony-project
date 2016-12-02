@@ -64,4 +64,8 @@ class User extends BaseUser
     {
         return $this->articles;
     }
+
+    public function __toString() {
+        return $this->username;
+    }
 }

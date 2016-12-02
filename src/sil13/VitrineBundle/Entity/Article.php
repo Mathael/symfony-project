@@ -35,7 +35,7 @@ class Article
     private $category;
 
     /**
-     * @var \sil13\VitrineBundle\Entity\User
+     * @var User
      */
     private $user;
 
@@ -175,10 +175,10 @@ class Article
     /**
      * Set user
      *
-     * @param \sil13\VitrineBundle\Entity\User $user
+     * @param User $user
      * @return Article
      */
-    public function setUser(\sil13\VitrineBundle\Entity\User $user = null)
+    public function setUser(User $user = null)
     {
         $this->user = $user;
 
@@ -188,7 +188,7 @@ class Article
     /**
      * Get user
      *
-     * @return \sil13\VitrineBundle\Entity\User 
+     * @return User
      */
     public function getUser()
     {
@@ -198,11 +198,11 @@ class Article
     /**
      * Add user
      *
-     * @param \sil13\VitrineBundle\Entity\User $user
+     * @param User $user
      *
      * @return Article
      */
-    public function addUser(\sil13\VitrineBundle\Entity\User $user)
+    public function addUser(User $user)
     {
         $this->user[] = $user;
 
@@ -212,10 +212,14 @@ class Article
     /**
      * Remove user
      *
-     * @param \sil13\VitrineBundle\Entity\User $user
+     * @param User $user
      */
-    public function removeUser(\sil13\VitrineBundle\Entity\User $user)
+    public function removeUser(User $user)
     {
         $this->user->removeElement($user);
+    }
+
+    public function __toString() {
+        return $this->name;
     }
 }

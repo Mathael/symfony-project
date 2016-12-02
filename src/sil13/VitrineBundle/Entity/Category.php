@@ -110,4 +110,8 @@ class Category
     {
         $this->articles->removeElement($article);
     }
+
+    public function __toString() {
+        return $this->name;
+    }
 }
