@@ -2,6 +2,8 @@
 
 namespace sil13\VitrineBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Article
 {
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -25,24 +27,52 @@ class Article
     private $description;
 
     /**
-     * @var bool
+     * @var boolean
      */
     private $isSoldOut;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Category
      */
     private $category;
 
     /**
-     * @var User
+     * @var Collection
      */
     private $user;
 
     /**
+     * @var integer
+     */
+    private $price;
+
+    /**
+     * @var Collection
+     */
+    private $order;
+
+    /**
+     * @var string
+     */
+    private $marque;
+
+    /**
+     * @var string
+     */
+    private $imageName;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->user = new ArrayCollection();
+    }
+
+    /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -53,6 +83,7 @@ class Article
      * Set name
      *
      * @param string $name
+     *
      * @return Article
      */
     public function setName($name)
@@ -65,7 +96,7 @@ class Article
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -76,6 +107,7 @@ class Article
      * Set description
      *
      * @param string $description
+     *
      * @return Article
      */
     public function setDescription($description)
@@ -88,7 +120,7 @@ class Article
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -99,6 +131,7 @@ class Article
      * Set isSoldOut
      *
      * @param boolean $isSoldOut
+     *
      * @return Article
      */
     public function setIsSoldOut($isSoldOut)
@@ -111,7 +144,7 @@ class Article
     /**
      * Get isSoldOut
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getIsSoldOut()
     {
@@ -119,53 +152,13 @@ class Article
     }
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add category
-     *
-     * @param \sil13\VitrineBundle\Entity\Category $category
-     * @return Article
-     */
-    public function addCategory(\sil13\VitrineBundle\Entity\Category $category)
-    {
-        $this->category[] = $category;
-
-        return $this;
-    }
-
-    /**
-     * Remove category
-     *
-     * @param \sil13\VitrineBundle\Entity\Category $category
-     */
-    public function removeCategory(\sil13\VitrineBundle\Entity\Category $category)
-    {
-        $this->category->removeElement($category);
-    }
-
-    /**
-     * Get category
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    /**
      * Set category
      *
-     * @param \sil13\VitrineBundle\Entity\Category $category
+     * @param Category $category
+     *
      * @return Article
      */
-    public function setCategory(\sil13\VitrineBundle\Entity\Category $category = null)
+    public function setCategory(Category $category = null)
     {
         $this->category = $category;
 
@@ -173,26 +166,13 @@ class Article
     }
 
     /**
-     * Set user
+     * Get category
      *
-     * @param User $user
-     * @return Article
+     * @return Category
      */
-    public function setUser(User $user = null)
+    public function getCategory()
     {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return User
-     */
-    public function getUser()
-    {
-        return $this->user;
+        return $this->category;
     }
 
     /**
@@ -219,7 +199,119 @@ class Article
         $this->user->removeElement($user);
     }
 
-    public function __toString() {
-        return $this->name;
+    /**
+     * Get user
+     *
+     * @return Collection
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set imageName
+     *
+     * @param string $imageName
+     *
+     * @return Article
+     */
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    /**
+     * Get imageName
+     *
+     * @return string
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * Set marque
+     *
+     * @param string $marque
+     *
+     * @return Article
+     */
+    public function setMarque($marque)
+    {
+        $this->marque = $marque;
+
+        return $this;
+    }
+
+    /**
+     * Get marque
+     *
+     * @return string
+     */
+    public function getMarque()
+    {
+        return $this->marque;
+    }
+
+    /**
+     * Add order
+     *
+     * @param BuyOrder $order
+     *
+     * @return Article
+     */
+    public function addOrder(BuyOrder $order)
+    {
+        $this->order[] = $order;
+
+        return $this;
+    }
+
+    /**
+     * Remove order
+     *
+     * @param BuyOrder $order
+     */
+    public function removeOrder(BuyOrder $order)
+    {
+        $this->order->removeElement($order);
+    }
+
+    /**
+     * Get order
+     *
+     * @return Collection
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * Set price
+     *
+     * @param integer $price
+     *
+     * @return Article
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return integer
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }

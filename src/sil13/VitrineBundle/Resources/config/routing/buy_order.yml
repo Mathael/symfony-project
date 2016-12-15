@@ -1,0 +1,10 @@
+cart_add_article:
+    path:     /add/{id}/{quantity}
+    defaults: { _controller: "sil13VitrineBundle:Order:addToCart", quantity: 1}
+    methods:  POST
+
+cart_remove_article:
+    path:     /remove/{id}/{quantity}
+    defaults: { _controller: "sil13VitrineBundle:Order:removeFromCart", quantity: 1}
+    methods:  POST
+

@@ -1,0 +1,35 @@
+body {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.article figure img {
+    width: 239px;
+    height: 295px;
+    margin: 0 auto;
+    display: block;
+}
+
+.article figure figcaption {
+    min-height: 80px;
+    height: 80px;
+    text-align: justify;
+    padding: 8px 0;
+    box-sizing: border-box;
+}
+
+.article-header span {
+    float: right;
+}
+
+.article-body {
+    height: 435px;
+}
+
+.kart {
+    float: right;
+}
+
+.text-color-black {  color: black; }
+.text-color-white {  color: white; }
+.text-color-darkred {  color: darkred; }

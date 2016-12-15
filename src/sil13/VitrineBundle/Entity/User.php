@@ -23,49 +23,98 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var \sil13\VitrineBundle\Entity\Kart
      */
-    private $articles;
+    private $kart;
 
     public function __construct() {
         parent::__construct();
     }
 
-
     /**
-     * Add articles
+     * Set kart
      *
-     * @param \sil13\VitrineBundle\Entity\Article $articles
+     * @param \sil13\VitrineBundle\Entity\Kart $kart
+     *
      * @return User
      */
-    public function addArticle(\sil13\VitrineBundle\Entity\Article $articles)
+    public function setKart(\sil13\VitrineBundle\Entity\Kart $kart = null)
     {
-        $this->articles[] = $articles;
+        $this->kart = $kart;
 
         return $this;
     }
 
     /**
-     * Remove articles
+     * Get kart
      *
-     * @param \sil13\VitrineBundle\Entity\Article $articles
+     * @return \sil13\VitrineBundle\Entity\Kart
      */
-    public function removeArticle(\sil13\VitrineBundle\Entity\Article $articles)
+    public function getKart()
     {
-        $this->articles->removeElement($articles);
+        return $this->kart;
     }
 
     /**
-     * Get articles
+     * Add kart
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @param \sil13\VitrineBundle\Entity\Kart $kart
+     *
+     * @return User
      */
-    public function getArticles()
+    public function addKart(\sil13\VitrineBundle\Entity\Kart $kart)
     {
-        return $this->articles;
+        $this->kart[] = $kart;
+
+        return $this;
     }
 
-    public function __toString() {
-        return $this->username;
+    /**
+     * Remove kart
+     *
+     * @param \sil13\VitrineBundle\Entity\Kart $kart
+     */
+    public function removeKart(\sil13\VitrineBundle\Entity\Kart $kart)
+    {
+        $this->kart->removeElement($kart);
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $order;
+
+
+    /**
+     * Add order
+     *
+     * @param \sil13\VitrineBundle\Entity\BuyOrder $order
+     *
+     * @return User
+     */
+    public function addOrder(\sil13\VitrineBundle\Entity\BuyOrder $order)
+    {
+        $this->order[] = $order;
+
+        return $this;
+    }
+
+    /**
+     * Remove order
+     *
+     * @param \sil13\VitrineBundle\Entity\BuyOrder $order
+     */
+    public function removeOrder(\sil13\VitrineBundle\Entity\BuyOrder $order)
+    {
+        $this->order->removeElement($order);
+    }
+
+    /**
+     * Get order
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getOrder()
+    {
+        return $this->order;
     }
 }

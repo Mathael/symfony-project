@@ -2,6 +2,7 @@
 
 namespace sil13\VitrineBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,9 +21,17 @@ class Category
     private $name;
 
     /**
-     * @var \sil13\VitrineBundle\Entity\Article
+     * @var Article
      */
     private $articles;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -60,10 +69,10 @@ class Category
     /**
      * Set articles
      *
-     * @param \sil13\VitrineBundle\Entity\Article $articles
+     * @param Article $articles
      * @return Category
      */
-    public function setArticles(\sil13\VitrineBundle\Entity\Article $articles = null)
+    public function setArticles(Article $articles = null)
     {
         $this->articles = $articles;
 
@@ -73,28 +82,21 @@ class Category
     /**
      * Get articles
      *
-     * @return \sil13\VitrineBundle\Entity\Article 
+     * @return Article
      */
     public function getArticles()
     {
         return $this->articles;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->articles = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add article
      *
-     * @param \sil13\VitrineBundle\Entity\Article $article
+     * @param Article $article
      *
      * @return Category
      */
-    public function addArticle(\sil13\VitrineBundle\Entity\Article $article)
+    public function addArticle(Article $article)
     {
         $this->articles[] = $article;
 
@@ -104,9 +106,9 @@ class Category
     /**
      * Remove article
      *
-     * @param \sil13\VitrineBundle\Entity\Article $article
+     * @param Article $article
      */
-    public function removeArticle(\sil13\VitrineBundle\Entity\Article $article)
+    public function removeArticle(Article $article)
     {
         $this->articles->removeElement($article);
     }

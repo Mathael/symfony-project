@@ -6,14 +6,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ArticleType extends AbstractType
+class CategoryType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('marque')->add('description')->add('isSoldOut')->add('category')->add('imageName');
+        $builder->add('name')        ;
     }
     
     /**
@@ -22,7 +22,7 @@ class ArticleType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'sil13\VitrineBundle\Entity\Article'
+            'data_class' => 'sil13\VitrineBundle\Entity\Category'
         ));
     }
 
@@ -31,7 +31,7 @@ class ArticleType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'sil13_vitrinebundle_article';
+        return 'sil13_vitrinebundle_category';
     }
 
 

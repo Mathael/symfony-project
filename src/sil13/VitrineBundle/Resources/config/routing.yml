@@ -6,6 +6,15 @@ sil13_vitrine_category:
     resource: "@sil13VitrineBundle/Resources/config/routing/category.yml"
     prefix:   /category
 
+sil13_vitrine_order:
+    resource: "@sil13VitrineBundle/Resources/config/routing/buy_order.yml"
+    prefix:   /order
+
+show_cart:
+    path:     /cart
+    defaults: { _controller: "sil13VitrineBundle:Order:showCart", quantity: 1}
+    methods:  GET
+
 sil13_vitrine_homepage:
     path:     /
     defaults: { _controller: sil13VitrineBundle:Default:index }
