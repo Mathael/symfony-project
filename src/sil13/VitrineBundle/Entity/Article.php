@@ -27,19 +27,9 @@ class Article
     private $description;
 
     /**
-     * @var boolean
+     * @var string
      */
-    private $isSoldOut;
-
-    /**
-     * @var Category
-     */
-    private $category;
-
-    /**
-     * @var Collection
-     */
-    private $user;
+    private $marque;
 
     /**
      * @var integer
@@ -47,26 +37,31 @@ class Article
     private $price;
 
     /**
-     * @var Collection
-     */
-    private $order;
-
-    /**
-     * @var string
-     */
-    private $marque;
-
-    /**
      * @var string
      */
     private $imageName;
+
+    /**
+     * @var boolean
+     */
+    private $isSoldOut;
+
+    /**
+     * @var Collection
+     */
+    private $orders;
+
+    /**
+     * @var Category
+     */
+    private $category;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->user = new ArrayCollection();
+        $this->orders = new ArrayCollection();
     }
 
     /**
@@ -128,85 +123,51 @@ class Article
     }
 
     /**
-     * Set isSoldOut
+     * Set marque
      *
-     * @param boolean $isSoldOut
+     * @param string $marque
      *
      * @return Article
      */
-    public function setIsSoldOut($isSoldOut)
+    public function setMarque($marque)
     {
-        $this->isSoldOut = $isSoldOut;
+        $this->marque = $marque;
 
         return $this;
     }
 
     /**
-     * Get isSoldOut
+     * Get marque
      *
-     * @return boolean
+     * @return string
      */
-    public function getIsSoldOut()
+    public function getMarque()
     {
-        return $this->isSoldOut;
+        return $this->marque;
     }
 
     /**
-     * Set category
+     * Set price
      *
-     * @param Category $category
+     * @param integer $price
      *
      * @return Article
      */
-    public function setCategory(Category $category = null)
+    public function setPrice($price)
     {
-        $this->category = $category;
+        $this->price = $price;
 
         return $this;
     }
 
     /**
-     * Get category
+     * Get price
      *
-     * @return Category
+     * @return integer
      */
-    public function getCategory()
+    public function getPrice()
     {
-        return $this->category;
-    }
-
-    /**
-     * Add user
-     *
-     * @param User $user
-     *
-     * @return Article
-     */
-    public function addUser(User $user)
-    {
-        $this->user[] = $user;
-
-        return $this;
-    }
-
-    /**
-     * Remove user
-     *
-     * @param User $user
-     */
-    public function removeUser(User $user)
-    {
-        $this->user->removeElement($user);
-    }
-
-    /**
-     * Get user
-     *
-     * @return Collection
-     */
-    public function getUser()
-    {
-        return $this->user;
+        return $this->price;
     }
 
     /**
@@ -234,27 +195,27 @@ class Article
     }
 
     /**
-     * Set marque
+     * Set isSoldOut
      *
-     * @param string $marque
+     * @param boolean $isSoldOut
      *
      * @return Article
      */
-    public function setMarque($marque)
+    public function setIsSoldOut($isSoldOut)
     {
-        $this->marque = $marque;
+        $this->isSoldOut = $isSoldOut;
 
         return $this;
     }
 
     /**
-     * Get marque
+     * Get isSoldOut
      *
-     * @return string
+     * @return boolean
      */
-    public function getMarque()
+    public function getIsSoldOut()
     {
-        return $this->marque;
+        return $this->isSoldOut;
     }
 
     /**
@@ -266,7 +227,7 @@ class Article
      */
     public function addOrder(BuyOrder $order)
     {
-        $this->order[] = $order;
+        $this->orders[] = $order;
 
         return $this;
     }
@@ -278,40 +239,40 @@ class Article
      */
     public function removeOrder(BuyOrder $order)
     {
-        $this->order->removeElement($order);
+        $this->orders->removeElement($order);
     }
 
     /**
-     * Get order
+     * Get orders
      *
      * @return Collection
      */
-    public function getOrder()
+    public function getOrders()
     {
-        return $this->order;
+        return $this->orders;
     }
 
     /**
-     * Set price
+     * Set category
      *
-     * @param integer $price
+     * @param Category $category
      *
      * @return Article
      */
-    public function setPrice($price)
+    public function setCategory(Category $category = null)
     {
-        $this->price = $price;
+        $this->category = $category;
 
         return $this;
     }
 
     /**
-     * Get price
+     * Get category
      *
-     * @return integer
+     * @return Category
      */
-    public function getPrice()
+    public function getCategory()
     {
-        return $this->price;
+        return $this->category;
     }
 }

@@ -23,8 +23,8 @@ class OrderController extends Controller
         ]);
     }
 
-    public function addToCartAction(Request $request, Article $article, $quantity) {
-
+    public function addToCartAction(Request $request, Article $article) {
+        $quantity = $request->get('quantity', 1);
         $session = $request->getSession();
 
         $cart = $session->get(Constants::CART);

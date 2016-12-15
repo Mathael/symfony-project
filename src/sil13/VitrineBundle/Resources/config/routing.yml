@@ -12,7 +12,7 @@ sil13_vitrine_order:
 
 show_cart:
     path:     /cart
-    defaults: { _controller: "sil13VitrineBundle:Order:showCart", quantity: 1}
+    defaults: { _controller: "sil13VitrineBundle:Order:showCart"}
     methods:  GET
 
 sil13_vitrine_homepage:

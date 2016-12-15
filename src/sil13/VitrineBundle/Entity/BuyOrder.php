@@ -8,7 +8,7 @@ namespace sil13\VitrineBundle\Entity;
 class BuyOrder
 {
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -64,7 +64,7 @@ class BuyOrder
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -81,6 +81,7 @@ class BuyOrder
     public function setCount($count)
     {
         $this->count = $count;
+
         return $this;
     }
 

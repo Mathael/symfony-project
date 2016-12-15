@@ -6,6 +6,7 @@
  */
 namespace sil13\VitrineBundle\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -23,77 +24,24 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @var \sil13\VitrineBundle\Entity\Kart
+     * @var Collection
      */
-    private $kart;
+    private $orders;
 
     public function __construct() {
         parent::__construct();
     }
 
     /**
-     * Set kart
-     *
-     * @param \sil13\VitrineBundle\Entity\Kart $kart
-     *
-     * @return User
-     */
-    public function setKart(\sil13\VitrineBundle\Entity\Kart $kart = null)
-    {
-        $this->kart = $kart;
-
-        return $this;
-    }
-
-    /**
-     * Get kart
-     *
-     * @return \sil13\VitrineBundle\Entity\Kart
-     */
-    public function getKart()
-    {
-        return $this->kart;
-    }
-
-    /**
-     * Add kart
-     *
-     * @param \sil13\VitrineBundle\Entity\Kart $kart
-     *
-     * @return User
-     */
-    public function addKart(\sil13\VitrineBundle\Entity\Kart $kart)
-    {
-        $this->kart[] = $kart;
-
-        return $this;
-    }
-
-    /**
-     * Remove kart
-     *
-     * @param \sil13\VitrineBundle\Entity\Kart $kart
-     */
-    public function removeKart(\sil13\VitrineBundle\Entity\Kart $kart)
-    {
-        $this->kart->removeElement($kart);
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $order;
-
-
-    /**
      * Add order
      *
-     * @param \sil13\VitrineBundle\Entity\BuyOrder $order
+     * @param BuyOrder $order
      *
      * @return User
      */
-    public function addOrder(\sil13\VitrineBundle\Entity\BuyOrder $order)
+    public function addOrder(BuyOrder $order)
     {
-        $this->order[] = $order;
+        $this->orders[] = $order;
 
         return $this;
     }
@@ -101,20 +49,20 @@ class User extends BaseUser
     /**
      * Remove order
      *
-     * @param \sil13\VitrineBundle\Entity\BuyOrder $order
+     * @param BuyOrder $order
      */
-    public function removeOrder(\sil13\VitrineBundle\Entity\BuyOrder $order)
+    public function removeOrder(BuyOrder $order)
     {
-        $this->order->removeElement($order);
+        $this->orders->removeElement($order);
     }
 
     /**
-     * Get order
+     * Get orders
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
-    public function getOrder()
+    public function getOrders()
     {
-        return $this->order;
+        return $this->orders;
     }
 }
